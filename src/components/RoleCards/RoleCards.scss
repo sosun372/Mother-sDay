@@ -1,0 +1,98 @@
+@use "../../styles/variables" as *;
+
+.role-section {
+    padding: 90px 24px 130px;
+
+    &__header {
+        width: min(920px, 100%);
+        margin: 0 auto 44px;
+        text-align: center;
+
+        p {
+            margin: 0 0 14px;
+            color: $color-gold;
+            text-transform: uppercase;
+            letter-spacing: 0.32em;
+            font-size: 0.78rem;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: clamp(2.4rem, 6vw, 5rem);
+            line-height: 0.95;
+            letter-spacing: -0.06em;
+        }
+    }
+}
+
+.role-grid {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.role-card {
+    min-height: 330px;
+    padding: 32px;
+    border-radius: 30px;
+    border: 1px solid $color-border;
+    background:
+        radial-gradient(circle at top right, rgba(216, 183, 106, 0.13), transparent 42%),
+        rgba(255, 255, 255, 0.065);
+    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.32);
+    backdrop-filter: blur(18px);
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+
+    &:hover {
+        transform: translateY(-8px);
+        border-color: rgba(216, 183, 106, 0.45);
+        background:
+            radial-gradient(circle at top right, rgba(216, 183, 106, 0.22), transparent 45%),
+            rgba(255, 255, 255, 0.09);
+    }
+
+    &__icon {
+        width: 54px;
+        height: 54px;
+        display: grid;
+        place-items: center;
+        border-radius: 18px;
+        color: #17130a;
+        background: linear-gradient(135deg, #f3d78b, $color-gold);
+        margin-bottom: 36px;
+    }
+
+    span {
+        color: rgba(255, 255, 255, 0.32);
+        font-weight: 800;
+        letter-spacing: 0.18em;
+    }
+
+    h3 {
+        margin: 18px 0 14px;
+        font-size: 2rem;
+    }
+
+    p {
+        color: $color-muted;
+        line-height: 1.8;
+        margin: 0;
+    }
+}
+
+@media (max-width: 860px) {
+    .role-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .role-card {
+        min-height: auto;
+    }
+}

@@ -1,0 +1,31 @@
+@use "./variables" as *;
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: $color-bg;
+    color: $color-text;
+    font-family: Inter, system-ui, sans-serif;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+.app {
+    min-height: 100vh;
+    overflow-x: hidden;
+}

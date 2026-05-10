@@ -1,0 +1,105 @@
+@use "../../styles/variables" as *;
+
+.message-page {
+    min-height: 100vh;
+    padding: 40px 24px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.message-page__card {
+    width: min(900px, 100%);
+    padding: clamp(34px, 6vw, 68px);
+    border-radius: 42px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid $color-border;
+    box-shadow: 0 28px 90px rgba(143, 63, 75, 0.13);
+    backdrop-filter: blur(18px);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "❀";
+        position: absolute;
+        right: 34px;
+        top: 20px;
+        font-size: 5rem;
+        color: rgba(199, 111, 122, 0.13);
+    }
+
+    &::after {
+        content: "Anne sevgisi, kalbin en güzel evidir.";
+        position: absolute;
+        left: 34px;
+        bottom: 24px;
+        color: rgba(143, 63, 75, 0.18);
+        font-size: 0.85rem;
+        font-style: italic;
+    }
+}
+
+.message-page__eyebrow {
+    margin: 0 0 18px;
+    color: $color-rose-dark;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.message-page h2 {
+    margin: 0 0 28px;
+    color: $color-text;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.055em;
+}
+
+.message-page p:not(.message-page__eyebrow) {
+    max-width: 760px;
+    margin: 18px auto 0;
+    color: $color-muted;
+    font-size: clamp(1.04rem, 2vw, 1.2rem);
+    line-height: 1.9;
+}
+
+.message-page strong {
+    display: block;
+    margin-top: 30px;
+    color: $color-rose-dark;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+}
+
+.message-page__button {
+    margin-top: 38px;
+    padding: 15px 32px;
+    border: 0;
+    border-radius: 999px;
+    color: white;
+    background: linear-gradient(135deg, $color-rose, $color-rose-dark);
+    box-shadow: 0 18px 45px rgba(199, 111, 122, 0.28);
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 24px 64px rgba(199, 111, 122, 0.34);
+    }
+}
+
+@media (max-width: 560px) {
+    .message-page__card {
+        border-radius: 30px;
+
+        &::after {
+            display: none;
+        }
+    }
+}

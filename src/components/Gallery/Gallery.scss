@@ -1,0 +1,238 @@
+@use "../../styles/variables" as *;
+
+.gallery-page {
+    min-height: 100vh;
+    padding: 34px 24px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.gallery-page__layout {
+    width: min(1180px, 100%);
+    display: grid;
+    grid-template-columns: 0.82fr 1.18fr;
+    gap: 46px;
+    align-items: center;
+}
+
+.gallery-page__copy {
+    text-align: left;
+
+    h2 {
+        margin: 0;
+        color: $color-text;
+        font-size: clamp(2.8rem, 6vw, 5.7rem);
+        line-height: 0.94;
+        letter-spacing: -0.065em;
+    }
+
+    p:not(.gallery-page__eyebrow) {
+        max-width: 520px;
+        margin: 24px 0 0;
+        color: $color-muted;
+        font-size: clamp(1.05rem, 2vw, 1.18rem);
+        line-height: 1.85;
+    }
+}
+
+.gallery-page__eyebrow {
+    margin: 0 0 18px;
+    color: $color-rose-dark;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.gallery-page__controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+
+    button {
+        width: 54px;
+        height: 54px;
+        display: grid;
+        place-items: center;
+        border: 0;
+        border-radius: 999px;
+        color: $color-rose-dark;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid $color-border;
+        box-shadow: 0 14px 34px rgba(143, 63, 75, 0.12);
+        cursor: pointer;
+        transition:
+            transform 0.24s ease,
+            background 0.24s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+            background: white;
+        }
+    }
+}
+
+.gallery-page__next {
+    margin-top: 34px;
+    padding: 15px 30px;
+    border: 0;
+    border-radius: 999px;
+    color: white;
+    background: linear-gradient(135deg, $color-rose, $color-rose-dark);
+    box-shadow: 0 18px 45px rgba(199, 111, 122, 0.28);
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 24px 64px rgba(199, 111, 122, 0.34);
+    }
+}
+
+.gallery-page__stage {
+    position: relative;
+    min-height: 720px;
+    display: grid;
+    place-items: center;
+}
+
+.gallery-page__floral {
+    position: absolute;
+    top: 22px;
+    right: 18px;
+    font-size: 11rem;
+    color: rgba(199, 111, 122, 0.14);
+    line-height: 1;
+    transform: rotate(18deg);
+    pointer-events: none;
+}
+
+.gallery-page__photo-card {
+    width: min(560px, 100%);
+    height: 620px;
+    padding: 14px 14px 58px;
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow:
+        0 35px 90px rgba(143, 63, 75, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.75);
+    position: relative;
+
+    &::after {
+        content: "Anneler Günü";
+        position: absolute;
+        left: 28px;
+        bottom: 22px;
+        color: rgba(143, 63, 75, 0.55);
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 24px;
+        object-fit: cover;
+    }
+}
+
+.gallery-page__thumbnails {
+    position: absolute;
+    bottom: 6px;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid $color-border;
+    box-shadow: 0 18px 50px rgba(143, 63, 75, 0.14);
+    backdrop-filter: blur(16px);
+
+    button {
+        width: 58px;
+        height: 58px;
+        padding: 3px;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+        opacity: 0.55;
+        transition:
+            transform 0.22s ease,
+            opacity 0.22s ease,
+            background 0.22s ease;
+
+        &.active {
+            opacity: 1;
+            background: linear-gradient(135deg, $color-rose, $color-gold);
+            transform: translateY(-4px);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+}
+
+@media (max-width: 920px) {
+    .gallery-page__layout {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .gallery-page__copy {
+        text-align: center;
+
+        p:not(.gallery-page__eyebrow) {
+            margin-inline: auto;
+        }
+    }
+
+    .gallery-page__controls {
+        justify-content: center;
+    }
+
+    .gallery-page__stage {
+        min-height: 600px;
+    }
+
+    .gallery-page__photo-card {
+        height: 500px;
+    }
+}
+
+@media (max-width: 560px) {
+    .gallery-page {
+        padding: 24px 16px;
+    }
+
+    .gallery-page__stage {
+        min-height: 500px;
+    }
+
+    .gallery-page__photo-card {
+        height: 420px;
+        padding: 10px 10px 48px;
+        border-radius: 28px;
+    }
+
+    .gallery-page__thumbnails {
+        gap: 6px;
+
+        button {
+            width: 45px;
+            height: 45px;
+        }
+    }
+}

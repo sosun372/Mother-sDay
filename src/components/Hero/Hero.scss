@@ -1,0 +1,73 @@
+@use "../../styles/variables" as *;
+
+.hero-page {
+    min-height: 100vh;
+    padding: 40px 24px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    &__content {
+        width: min(980px, 100%);
+    }
+
+    &__icon {
+        width: 78px;
+        height: 78px;
+        margin: 0 auto 26px;
+        display: grid;
+        place-items: center;
+        border-radius: 28px;
+        color: white;
+        background: linear-gradient(135deg, $color-rose, $color-rose-dark);
+        box-shadow: 0 20px 52px rgba(199, 111, 122, 0.26);
+    }
+
+    &__eyebrow {
+        margin: 0 0 20px;
+        color: $color-rose-dark;
+        text-transform: uppercase;
+        letter-spacing: 0.32em;
+        font-size: 0.8rem;
+        font-weight: 800;
+    }
+
+    h1 {
+        margin: 0;
+        color: $color-text;
+        font-size: clamp(3.3rem, 8vw, 7.4rem);
+        line-height: 0.95;
+        letter-spacing: -0.065em;
+    }
+
+    &__text {
+        max-width: 740px;
+        margin: 30px auto 0;
+        color: $color-muted;
+        font-size: clamp(1.05rem, 2vw, 1.25rem);
+        line-height: 1.85;
+    }
+
+    &__button {
+        margin-top: 38px;
+        padding: 15px 32px;
+        border: 0;
+        border-radius: 999px;
+        color: white;
+        background: linear-gradient(135deg, $color-rose, $color-rose-dark);
+        box-shadow: 0 18px 45px rgba(199, 111, 122, 0.28);
+        font: inherit;
+        font-weight: 800;
+        cursor: pointer;
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 24px 64px rgba(199, 111, 122, 0.34);
+        }
+    }
+}

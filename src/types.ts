@@ -1,0 +1,1 @@
+export type PageType = "hero" | "message" | "gallery" | "final" | "flowers";
